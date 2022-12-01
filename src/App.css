@@ -1,38 +1,117 @@
-.App {
-  text-align: center;
+
+
+*{
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  color: #edf0f1;
+  font-family: 'Montserrat', sans-serif;
+}
+body{
+  background-color: #24252A;
+}
+li, a, button{
+  font-weight: 500;
+  font-size: 16px;
+  color: #edf0f1;
+  text-decoration: none;
+  background-color: #191a1d;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+.navbar{
+  display:flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 30px 10%;
+  background-color: #191a1d;
 }
 
-.App-link {
-  color: #61dafb;
+.navLinks{
+  list-style: none;
+}
+.navLinks li{
+  display:inline-block;
+  padding: 0px 20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.navLinks li a {
+  transition: all 0.3s ease 0s;
+
 }
+
+.navLinks li a:hover {
+  color: #0088a9
+}
+button{
+  padding: 9px 25px;
+  background-color: rgba(0,136,169,1);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+}
+button:hover{
+  background-color: rgba(0,136,169,0.8);
+
+}
+.cartCounter{
+
+  position: absolute;
+  background-color: rgb(243, 66, 66);
+  padding: 5px;
+  border-radius: 10px;
+}
+
+
+.cart{
+  background-color: rgba(0,136,169,1);
+  color: #fff;
+  font-size: 20px;
+}
+
+.cartItemContainer{
+  margin: 30px;
+  background-color: #fff;
+  display: flex;
+}
+.cartItemContainer__text{
+ color: #191a1d;
+ margin: 10px;
+ font-size: 35px;
+}
+
+.image{
+  margin-top: 45px;
+  width: 25%;
+  height: 25%;
+}
+.imageDetail{
+  width: 50%;
+  height: 50%;
+}
+
+
+.itemContainer{
+  gap:50px;
+}
+
+.itemButton{
+  padding: 9px 25px;
+  background-color: rgba(0,136,169,1);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+  position: absolute;
+}
+
+.itemDetailContainer{
+  display: grid;
+}
+
+.listContainer{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0px;
+}
+
