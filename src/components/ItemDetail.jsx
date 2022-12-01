@@ -1,7 +1,11 @@
 
 import ItemCount from './ItemCount';
+import CartContext from './CartContext';
+import { useContext } from 'react';
 
 const ItemDetail = ({item}) => {
+
+    const{ addToCart } = useContext(CartContext)
 
     const onAdd = (qty) =>{
         alert("You have selected " + qty + " items.");
@@ -20,7 +24,7 @@ const ItemDetail = ({item}) => {
                         <span >$ {item.price}</span>
                         <p>Stock: {item.available_quantity}</p>
                     </div>
-                    <ItemCount onAdd={onAdd} />
+                    <ItemCount onAdd={onAdd} onClick = {() => addToCart(item)} />
                 </div>
             </div>
         </>

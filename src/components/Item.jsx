@@ -1,5 +1,9 @@
 import {Link} from 'react-router-dom'
+import CartContext from './CartContext';
+import { useContext } from 'react';
 const Item = (props) => {
+
+    const{ addToCart } = useContext(CartContext)
 
     return (
         <>
