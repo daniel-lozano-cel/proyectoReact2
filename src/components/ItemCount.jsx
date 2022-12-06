@@ -3,19 +3,17 @@ import '../App.css'
 import React from 'react'
 import Checkout from './Checkout';
 
-const ItemCount = ({ props,  onAdd }) =>{
-    const [unit, setUnit] = useState(0);
+const ItemCount = ({ stock,  onAdd }) =>{
+    const [unit, setUnit] = useState(1);
     
     const increaseUnit = () =>{
-        setUnit(unit+1);
-        if (unit >= props.available_quantity){
-            setUnit(unit+0)
+        if (unit < stock){
+            setUnit(unit+1)
         }
     }
     const decreaseUnit = () =>{
-        setUnit(unit-1)
-        if(unit <= 0){
-            setUnit(unit+0)
+        if(unit >  0){
+            setUnit(unit-1)
         }
     }
     const cleanUnit = () => {

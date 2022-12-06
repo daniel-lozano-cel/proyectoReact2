@@ -11,7 +11,7 @@ const CartWidget = () =>{
 
     return(
         <>
-        <span className='cartCounter' >{cartItems.length > 0 && <span>{cartItems.length}</span>}</span>
+        <CartContext.Provider value={{cart, addItem, isInCart}} className='cartCounter' />
         <Link to='/cart'><a><button><HiOutlineShoppingCart className='cart' /></button></a> </Link>
         </>
     )

@@ -9,6 +9,7 @@ const ItemDetail = ({item}) => {
 
     const onAdd = (qty) =>{
         alert("You have selected " + qty + " items.");
+        addToCart(item, qty)
     }
 
     return (
@@ -24,7 +25,7 @@ const ItemDetail = ({item}) => {
                         <span >$ {item.price}</span>
                         <p>Stock: {item.available_quantity}</p>
                     </div>
-                    <ItemCount onAdd={onAdd} onClick = {() => addToCart(item)} />
+                    <ItemCount onAdd={onAdd} stock={item.available_quantity} />
                 </div>
             </div>
         </>
