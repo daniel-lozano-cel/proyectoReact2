@@ -11,9 +11,9 @@ const NavBar = () =>{
                 </h2>
                 <nav>
                     <ul className='navLinks'>
-                        <Link to='/category/1' ><li><a href="#">Zapatos</a></li></Link>
-                        <Link to='/category/2' ><li><a href="#">Tennis</a></li></Link>
-                        <Link to='/category/3' ><li><a href="#">Elegantes</a></li></Link>
+                        <Link to='/category/1' ><li>Zapatos</li></Link>
+                        <Link to='/category/2' ><li>Tennis</li></Link>
+                        <Link to='/category/3' ><li>Elegantes</li></Link>
                     </ul>
                 </nav>
                 <div>

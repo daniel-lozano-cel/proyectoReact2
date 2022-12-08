@@ -1,41 +1,33 @@
 import {useEffect, useState, setProduct} from 'react'
-import {List} from '../utils/data'
 import {useParams,} from 'react-router-dom'
-import customFetch from '../utils/customFetch'
 import ItemList from '../components/ItemList.jsx'
-import {getFirestore, getDoc, doc} from "firebase/firestore";
+import {getFirestore,  collection, getDocs, query, where} from "firebase/firestore";
 
-const ItemListContainer = (item) =>{
+const ItemListContainer = () =>{
     const[data, setData] = useState([])
     const {categoryId} = useParams()
-    //Usando array de productos propio 
-
-    /*
-    Promesa para acceder a los items locales
-
-    useEffect(() => {
-        customFetch(2000, List.filter(item => {
-            if (categoryId === undefined) return item;
-            return item.categoryId === parseInt(categoryId)
-        }))
-            .then(result => setData(result))
-            .catch(err => console.log(err))
-    }, [data]);
-    */
+ 
     useEffect(()=>{
         const db = getFirestore();
-        const biciRef = doc(db, "items", "b4enb3JumTajpecsfd9s");
-        getDoc(biciRef).then((snapshot)=>{
-            if(snapshot.exists()){
-                setProduct({id:snapshot.id, ...snapshot.data()});
-            }
-        });
-       }, []);
+        let querySnapshot;
+        if(categoryId){
+            querySnapshot = query(collection(db, 'items'), where('categoryId', '==', parseInt(categoryId)))
+        }else{
+            querySnapshot = collection(db, 'items')
+        }   
+        getDocs(querySnapshot).then((response) => {
+            const itemsData = response.docs.map((product) => {
+              return { id: product.id, ...product.data() };
+            });
+            setData(itemsData)
+        })
 
+       }, [categoryId]);
+       
     return(
 
         <div className='listContainer' >
-            <ItemList/> 
+            <ItemList data={data}/> 
         </div>
     )
     

@@ -1,4 +1,5 @@
 import {useState} from 'react'
+import Form from './Form'
 const Checkout = () =>{
 
     const onAdd = () =>{
@@ -8,7 +9,8 @@ const Checkout = () =>{
 
     return(
         <>
-            <button onClick={onAdd}>Realizar compra</button>
+            <Form/>
+            <button type="submit" onClick={onAdd}>Realizar compra</button>
         </>
     )
 }
