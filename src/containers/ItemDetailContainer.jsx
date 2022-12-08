@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState} from "react";
 import { useParams } from "react-router";
 import customFetch from "../utils/customFetch";
 import Details from "../components/ItemDetail";
+
 const { List } = require('../utils/data');
 
 const ItemDetailContainer = () => {
@@ -13,6 +14,7 @@ const ItemDetailContainer = () => {
             .then(result => setDato(result))
             .catch(err => console.log(err))
     }, []);
+
     
     return (
         <Details item={dato} />   

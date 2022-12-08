@@ -1,13 +1,18 @@
-import {useEffect, useState} from 'react'
+import {useEffect, useState, setProduct} from 'react'
 import {List} from '../utils/data'
-import {useParams} from 'react-router-dom'
+import {useParams,} from 'react-router-dom'
 import customFetch from '../utils/customFetch'
 import ItemList from '../components/ItemList.jsx'
+import {getFirestore, getDoc, doc} from "firebase/firestore";
 
 const ItemListContainer = (item) =>{
     const[data, setData] = useState([])
     const {categoryId} = useParams()
     //Usando array de productos propio 
+
+    /*
+    Promesa para acceder a los items locales
+
     useEffect(() => {
         customFetch(2000, List.filter(item => {
             if (categoryId === undefined) return item;
@@ -16,19 +21,16 @@ const ItemListContainer = (item) =>{
             .then(result => setData(result))
             .catch(err => console.log(err))
     }, [data]);
-   
-   /*
-    Consulta a la API
-
-    setTimeout(
-        useEffect(()=>{
-            fetch('https://api.mercadolibre.com/sites/MLA/search?q=microfonos')
-                .then(response => response.json())
-                .then(response => setData(response.results))
-                .catch(error => console.log(error))
-        }, [])
-    , 2000)
-  */
+    */
+    useEffect(()=>{
+        const db = getFirestore();
+        const biciRef = doc(db, "items", "b4enb3JumTajpecsfd9s");
+        getDoc(biciRef).then((snapshot)=>{
+            if(snapshot.exists()){
+                setProduct({id:snapshot.id, ...snapshot.data()});
+            }
+        });
+       }, []);
 
     return(
 

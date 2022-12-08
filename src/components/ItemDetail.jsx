@@ -20,8 +20,8 @@ const ItemDetail = ({item}) => {
                         <img src={item.pictureUrl} alt="" className='imageDetail' ></img>
                     </div>
                     <div>
-                        <h1>  {item.name}</h1>
-                        <h3 >{item.description}</h3>
+                        <h1>  {item.title}</h1>
+                        <h3 >Description: {item.description}</h3>
                         <span >$ {item.price}</span>
                         <p>Stock: {item.available_quantity}</p>
                     </div>

@@ -1,9 +1,14 @@
-import {Link} from 'react-router-dom'
-
+import {useState} from 'react'
 const Checkout = () =>{
+
+    const onAdd = () =>{
+        alert('Su compra ha sido realizada exitosamente!')
+    }
+
+
     return(
         <>
-            <Link to='/cart'><a href="#"><button>Checkout</button></a></Link>
+            <button onClick={onAdd}>Realizar compra</button>
         </>
     )
 }

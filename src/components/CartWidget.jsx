@@ -7,12 +7,17 @@ import CartContext from './CartContext';
 
 const CartWidget = () =>{
 
-    const {cartItems} = useContext(CartContext)
+    const {getQuantity} = useContext(CartContext)
 
     return(
         <>
-        <CartContext.Provider value={{cart, addItem, isInCart}} className='cartCounter' />
-        <Link to='/cart'><a><button><HiOutlineShoppingCart className='cart' /></button></a> </Link>
+        
+        {
+            // si es distinto a 0,que nos muestre el valor
+            getQuantity()!==0 && 
+                //dentro de la etiqueta span, mostramos la cantidad
+                    <Link to={'/Cart'} ><button><HiOutlineShoppingCart/><span className='cartCounter'>{getQuantity()}</span></button></Link>
+        }
         </>
     )
 }

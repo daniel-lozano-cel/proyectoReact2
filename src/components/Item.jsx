@@ -17,7 +17,7 @@ const Item = (props) => {
                     <p>Precio (ARG): {props.price}</p>
                     <p>Stock disponible: {props.available_quantity}</p>
                 </div>
-                <Link to={`/details/${props.id}`}><a className='itemButton' href="#">View Details</a></Link>                
+                <Link to={`/details/${props.id}`}><button>View Details</button></Link>                
             </div>
         </>
           

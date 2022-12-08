@@ -6,7 +6,7 @@ const CartContext = createContext();
 export const CartContextProvider = ({ children }) => {
     const [cart, setCart] = useState([])
 
-    const addItem = (productToAdd, quantity) => {
+    const addToCart = (productToAdd, quantity) => {
     //Se crea un objeto
     const newObj = {
         ... productToAdd,
@@ -33,10 +33,20 @@ export const CartContextProvider = ({ children }) => {
         // con el método some, nos va a retornar true o false, si el producto está o no está en el carrito.
         return cart.some(el => el.id === id)
     }
-    
+    const getQuantity = () => {
+        // vamos a crear una variable con valor 0
+              let count = 0
+              cart.forEach(prod => {
+        // dentro del forEach vamos a sumar los valores
+                  count = count + prod.quantity
+              })
+        // lo retornamos
+              return count
+          }
+        
 
     return (
-        <CartContext.Provider value={{}}>
+        <CartContext.Provider value={{cart, addToCart, getQuantity}}>
             {children}
         </CartContext.Provider>
     )
