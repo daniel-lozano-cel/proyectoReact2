@@ -5,7 +5,6 @@ const CartContext = createContext();
 
 export const CartContextProvider = ({ children }) => {
     const [cart, setCart] = useState([])
-
     const addToCart = (productToAdd, quantity) => {
     //Se crea un objeto
     const newObj = {
@@ -44,7 +43,6 @@ export const CartContextProvider = ({ children }) => {
               return count
           }
         
-
     return (
         <CartContext.Provider value={{cart, addToCart, getQuantity}}>
             {children}

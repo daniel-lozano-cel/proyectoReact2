@@ -1,9 +1,15 @@
 import CartContext from "./CartContext";
 import { useContext} from "react";
 import Checkout from "./Checkout";
+
 const Cart = () => {
+    
+
 
     const {cart} = useContext(CartContext)
+
+
+    
     return(
         
         <>  
