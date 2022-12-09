@@ -67,49 +67,4 @@ export const List = [
         pictureUrl: "https://images.pexels.com/photos/293405/pexels-photo-293405.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         available_quantity: 98
     },
-    {
-        id: 8,
-        categoryId: 2,
-        title: "White Sport Tennis",
-        description: "Unisex Shoes",
-        price: "2000",
-        pictureUrl: "https://images.pexels.com/photos/1464625/pexels-photo-1464625.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        available_quantity: 98
-    },
-    {
-        id: 9,
-        categoryId: 1,
-        title: "Blue Jean Shoes",
-        description: "Unisex shoes",
-        price: "1900",
-        pictureUrl: "https://images.pexels.com/photos/1447262/pexels-photo-1447262.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        available_quantity: 98
-    },
-    {
-        id: 10,
-        categoryId: 1,
-        title: "Red Tennis",
-        description: "Unisex shoes",
-        price: "1800",
-        pictureUrl: "https://images.pexels.com/photos/1261005/pexels-photo-1261005.jpeg?cs=srgb&dl=pexels-mstudio-1261005.jpg&fm=jpg&_gl=1*195l2t4*_ga*MTk0NjcyNzk1Ni4xNjY2NzM5ODU3*_ga_8JE65Q40S6*MTY2NzYyODY5My4yLjEuMTY2NzYyOTE3My4wLjAuMA..",
-        available_quantity: 98
-    },
-    {
-        id: 11,
-        categoryId: 2,
-        title: "Gray Sport Tennis",
-        description: "Unisex Shoes",
-        price: "2000",
-        pictureUrl: "https://images.pexels.com/photos/1750045/pexels-photo-1750045.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        available_quantity: 98
-    },
-    {
-        id: 12,
-        categoryId: 3,
-        title: "Timber Boots",
-        description: "Male boots",
-        price: "2500",
-        pictureUrl: "https://images.pexels.com/photos/267242/pexels-photo-267242.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        available_quantity: 98
-    },
 ]

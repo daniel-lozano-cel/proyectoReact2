@@ -1,11 +1,11 @@
 import Item from "./Item";
-import {List} from '../utils/data'
 
-const ItemList = () => {
+
+const ItemList = ({data}) => {
     return(
         <>
             {
-                List.map(
+                data.map(
                     (item)=>(
                     <Item
                         key={item.id}

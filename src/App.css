@@ -89,7 +89,10 @@ button:hover{
   width: 50%;
   height: 50%;
 }
-
+.imageCart{
+  width: 25%;
+  height: 25%;
+}
 
 .itemContainer{
   gap:50px;
@@ -115,3 +118,6 @@ button:hover{
   gap: 0px;
 }
 
+.black{
+  color: black;
+}

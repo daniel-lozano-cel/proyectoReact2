@@ -1,9 +1,9 @@
-import {Link} from 'react-router-dom'
+import Form from './Form'
 
 const Checkout = () =>{
     return(
         <>
-            <Link to='/cart'><a href="#"><button>Checkout</button></a></Link>
+            <Form/>
         </>
     )
 }

@@ -1,39 +1,33 @@
 import {useEffect, useState} from 'react'
-import {List} from '../utils/data'
-import {useParams} from 'react-router-dom'
-import customFetch from '../utils/customFetch'
+import {useParams,} from 'react-router-dom'
 import ItemList from '../components/ItemList.jsx'
+import {getFirestore,  collection, getDocs, query, where} from "firebase/firestore";
 
-const ItemListContainer = (item) =>{
+const ItemListContainer = () =>{
     const[data, setData] = useState([])
     const {categoryId} = useParams()
-    //Usando array de productos propio 
-    useEffect(() => {
-        customFetch(2000, List.filter(item => {
-            if (categoryId === undefined) return item;
-            return item.categoryId === parseInt(categoryId)
-        }))
-            .then(result => setData(result))
-            .catch(err => console.log(err))
-    }, [data]);
-   
-   /*
-    Consulta a la API
+ 
+    useEffect(()=>{
+        const db = getFirestore();
+        let querySnapshot;
+        if(categoryId){
+            querySnapshot = query(collection(db, 'items'), where('categoryId', '==', parseInt(categoryId)))
+        }else{
+            querySnapshot = collection(db, 'items')
+        }   
+        getDocs(querySnapshot).then((response) => {
+            const itemsData = response.docs.map((product) => {
+              return { id: product.id, ...product.data() };
+            });
+            setData(itemsData)
+        })
 
-    setTimeout(
-        useEffect(()=>{
-            fetch('https://api.mercadolibre.com/sites/MLA/search?q=microfonos')
-                .then(response => response.json())
-                .then(response => setData(response.results))
-                .catch(error => console.log(error))
-        }, [])
-    , 2000)
-  */
-
+       }, [categoryId]);
+       
     return(
 
         <div className='listContainer' >
-            <ItemList/> 
+            <ItemList data={data}/> 
         </div>
     )
     
