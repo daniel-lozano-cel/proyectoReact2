@@ -2,6 +2,7 @@ import { useState, useContext } from "react";
 import {collection, addDoc} from "firebase/firestore";
 import {getFirestore} from "firebase/firestore";
 import CartContext from "./CartContext";
+import { Link } from "react-router-dom";
 const Form = () => {
 
     const[name, setName] = useState()
@@ -36,7 +37,7 @@ const Form = () => {
         phone 
     }   
 
-
+    
     const handleInputChange = (e) => {
         client(({
             ...client,
@@ -68,31 +69,34 @@ const Form = () => {
             <span>Su ID de orden es: {orderID}</span>
         )
     }
-
-    return(
-        
-            <>
-    
-
-                        <form>
-                        <label for="name">Nombre:</label>
-                        <input type="text" id="name" name="name" className="black" placeholder="Inserte su nombre"  onChange={nameInput}  />
-                        <br/>
-        
-                        <label for="lastname">Apellido:</label>
-                        <input type="text" id="lastname" name="lastname" className="black"placeholder="Inserte su apellido" onChange={lastnameInput}/>
-                        <br/>
-        
-                        <label for="correo">E-mail / Correo eléctronico:  </label>
-                        <input type="email" id="correo" name="correo" className="black" placeholder="Inserte su e-mail" onChange={emailInput}/>
-                        <br/>
-                        <label for="phone">Numero de Telefono:  </label>
-                        <input type="text" id="phone" name="phone" className="black" placeholder="Inserte su telefono" onChange={phoneInput}/>
+    return (
+        <div>
+           {!orderID 
+           ?<div> 
+                      <form>
+                            <label for="name">Nombre:</label>
+                            <input type="text" id="name" name="name" className="black" placeholder="Inserte su nombre"  onChange={nameInput}  />
+                            <br/>
+            
+                            <label for="lastname">Apellido:</label>
+                            <input type="text" id="lastname" name="lastname" className="black"placeholder="Inserte su apellido" onChange={lastnameInput}/>
+                            <br/>
+            
+                            <label for="correo">E-mail / Correo eléctronico:  </label>
+                            <input type="email" id="correo" name="correo" className="black" placeholder="Inserte su e-mail" onChange={emailInput}/>
+                            <br/>
+                            <label for="phone">Numero de Telefono:  </label>
+                            <input type="text" id="phone" name="phone" className="black" placeholder="Inserte su telefono" onChange={phoneInput}/>
                         </form>
                         <button type="submit" onClick={handleSubmit} >Realizar compra</button> 
-                
-            </>
-        
+           </div>
+           :
+           <div>
+            <h2>Muchas gracias por su compra!</h2>
+            <h4>Su orden es: {orderID}</h4>
+            <Link to='/' ><button className="btn btn-success">Volver</button></Link>
+           </div>}
+        </div>
     )
 }
 
